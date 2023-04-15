@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>see fetch</title>
+</head>
+<body>
+
+
+	<button onclick="fun()">Click Me</button>
+
+
+
+<script type="module">
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js"></script> 
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_jG898gRc3fBme1_WIXY08a5VCNP_Aaw",
+    authDomain: "fir-for-fetch.firebaseapp.com",
+    databaseURL: "https://fir-for-fetch-default-rtdb.firebaseio.com",
+    projectId: "fir-for-fetch",
+    storageBucket: "fir-for-fetch.appspot.com",
+    messagingSenderId: "587973074250",
+    appId: "1:587973074250:web:d2dca425c4260926d8b5b3"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getData()
+
+  function fun(){
+
+fetch('https://fir-for-fetch-default-rtdb.firebaseio.com/studentData', {
+  method: 'PUT',
+  body: JSON.stringify({
+     fname:"sumit",
+    lname: "don",
+    age:"30",
+    empid:"emp103"
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+}
+</script>
+
+
+
+</body>
+</html>
